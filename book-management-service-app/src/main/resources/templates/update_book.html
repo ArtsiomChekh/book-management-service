@@ -24,8 +24,14 @@
             <input type="text" th:field="*{bookAuthor}" class="form-control mb-4 col-4">
 
             <input type="text" th:field="*{bookGenre}" class="form-control mb-4 col-4">
+            
+            <select name="bookStatus" class="form-control mb-4 col-4">
+				<option selected>Status...</option>
+				<option value="AVAILABLE"> AVAILABLE </option>
+				<option value="UNAVAILABLE"> UNAVAILABLE </option>
+			</select>
 
-            <button type="submit" class="btn btn-info col-2"> Update Book</button>
+            <button type="submit" class="btn btn-primary col-2"> Update Book</button>
         </form>
 
         <hr>

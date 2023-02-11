@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.chekh.artsiom.model.Book;
+import com.chekh.artsiom.model.BookUser;
 import com.chekh.artsiom.service.BookService;
+import com.chekh.artsiom.service.BookUserService;
 
 @Controller
 public class BookController {
@@ -38,12 +40,6 @@ public class BookController {
 	     return "redirect:/";
 	 }
 	 
-	 @GetMapping("/moreInfo")
-	 public String showMoreInfo(Model model) {
-		 Book book = new Book();
-			model.addAttribute("book", book);
-			return "more_info";
-	 }
 	 
 	 @GetMapping("/deleteBook/{id}")
 	 public String deleteBook(@PathVariable(value = "id") long id) {
@@ -65,5 +61,7 @@ public class BookController {
 		 return "update_book";
 		 
 	 }
+	 
+	
 
 }
