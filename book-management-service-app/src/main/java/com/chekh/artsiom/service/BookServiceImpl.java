@@ -11,7 +11,7 @@ import com.chekh.artsiom.repository.BookRepository;
 
 @Service
 public class BookServiceImpl implements BookService {
-	
+
 	@Autowired
 	private BookRepository bookRepository;
 
@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void saveBook(Book book) {
 		this.bookRepository.save(book);
-		
+
 	}
 
 	@Override
@@ -33,13 +33,17 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book getBookById(long id) {
+
 		Optional<Book> optional = bookRepository.findById(id);
+
 		Book book = null;
-		if(optional.isPresent()) {
+
+		if (optional.isPresent()) {
 			book = optional.get();
 		} else {
-			  throw new RuntimeException(" Book not found for id :: " + id);
+			throw new RuntimeException(" Book not found for id :: " + id);
 		}
+
 		return book;
 	}
 

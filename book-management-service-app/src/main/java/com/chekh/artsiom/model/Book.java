@@ -1,7 +1,5 @@
 package com.chekh.artsiom.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +26,9 @@ public class Book {
 	
 	@Column(name = "book_status")
 	private String bookStatus;
+	
+	@Column(name = "brief_description")
+	private String briefDescription;
 	
 
 	public long getId() {
@@ -70,5 +71,12 @@ public class Book {
 		this.bookStatus = bookStatus;
 	}
 	
+	public String getBriefDescription() {
+		return briefDescription;
+	}
+
+	public void setBriefDescription(String briefDescription) {
+		this.briefDescription = briefDescription;
+	}
 	
 }

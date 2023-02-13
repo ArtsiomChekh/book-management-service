@@ -1,52 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Book Management System</title>
+	<meta charset="UTF-8">
+	<title>Book Management System</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<link rel="stylesheet"
- href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
- integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
- crossorigin="anonymous">
- 
 </head>
-<body>
- <div class="container my-2">
- <h1>Books List</h1> 
 
- 
-  <table border="1" class = "table table-striped table-responsive-md">
-   <thead>
-    <tr class="text-center">
-     <th>Book Title</th>
-     <th>Book Author</th>
-     <th>Book Genre</th>
-     <th>Book Status</th>
-     <th>Actions</th>
-     </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr th:each="book : ${listBooks}">
-     <td th:text="${book.bookTitle}"> </td>
-     <td th:text="${book.bookAuthor}"></td>
-     <td th:text="${book.bookGenre}"></td>
-   
-<td th:text="${book.bookStatus}">
-     </td>
-    <td>
-    <div class="text-center btn-block">
-    <a th:href="@{/deleteBook/{id}(id=${book.id})}" class="btn btn-danger btn-sm ">Delete</a>
-    <a th:href="@{/showFormForUpdate/{id}(id=${book.id})}" class="btn btn-primary btn-sm ">Update</a>
-    <a th:href = "@{/moreInfo}" class="btn btn-info btn-sm"> More Info </a> 
-    </div>
-    </td>
-    </tr>
-   </tbody>
-  </table>
-  <div class="text-left">
-  <a th:href = "@{/showNewBookForm}" class="btn btn-primary btn-mm mb-3"> Add Book </a>
-  </div>
- </div>
+<body>
+	<div class="container my-2">
+		<h1>Books List</h1>
+
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr class="text-center">
+					<th>Book Title</th>
+					<th>Book Author</th>
+					<th>Book Genre</th>
+					<th>Book Status</th>
+					<th>Actions</th>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="book : ${listBooks}">
+					<td th:text="${book.bookTitle}"> </td>
+					<td th:text="${book.bookAuthor}"></td>
+					<td th:text="${book.bookGenre}"></td>
+					<td th:text="${book.bookStatus}"> </td>
+					<td>
+						<div class="text-center btn-block">
+							<a th:href="@{/deleteBook/{id}(id=${book.id})}" class="btn btn-danger btn-sm ">Delete</a>
+							<a th:href="@{/showFormForUpdate/{id}(id=${book.id})}"
+								class="btn btn-primary btn-sm ">Update</a>
+							<a th:href="@{/moreInfo/{id}(id=${book.id})}" class="btn btn-info btn-sm"> More Info </a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="text-left">
+			<a th:href="@{/showNewBookForm}" class="btn btn-primary btn-mm mb-3"> Add Book </a>
+		</div>
+	</div>
 </body>
+
 </html>
