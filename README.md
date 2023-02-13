@@ -29,4 +29,5 @@ http://localhost:8080/
 ## Authors
 
 * **Artsiom Chekh** 
+* LinkedIn: https://www.linkedin.com/in/artsiom-chekh/
 
