@@ -26,8 +26,11 @@ http://localhost:8080/
 * Apache Tomcat
 * Bootstrap
 
+## App overview
+
+![Image alt](https://github.com/ArtsiomChekh/book-management-service/blob/cc01ec6ae58a38a56acb04206961d42de4162241/image.png)
+
 ## Authors
 
 * **Artsiom Chekh** 
 * LinkedIn: https://www.linkedin.com/in/artsiom-chekh/
-
