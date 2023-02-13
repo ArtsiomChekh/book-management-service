@@ -24,7 +24,7 @@ http://localhost:8080/
 * Bootstrap
 * HTML
 * Apache Tomcat
-* Bootstrap
+
 
 ## App overview
 
