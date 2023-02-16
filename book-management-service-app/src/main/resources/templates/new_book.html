@@ -14,7 +14,7 @@
 		<hr>
 		<h2>Add Book</h2>
 
-		<form action="#" th:action="@{/saveBook}" th:object="${book}" method="POST">
+		<form action="#" th:action="@{/saveBook/{id}(id=${book.id})}" th:object="${book}" method="POST">
 			<input type="text" th:field="*{bookTitle}" placeholder="Book Title" class="form-control mb-4 col-4">
 
 			<input type="text" th:field="*{bookAuthor}" placeholder="Book Author" class="form-control mb-4 col-4">
