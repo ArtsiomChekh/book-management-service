@@ -23,13 +23,27 @@ public class Book {
 
 	@Column(name = "book_genre")
 	private String bookGenre;
-	
+
 	@Column(name = "book_status")
 	private String bookStatus;
-	
+
 	@Column(name = "brief_description")
 	private String briefDescription;
-	
+
+	public Book(long id, String bookTitle, String bookAuthor, String bookGenre, String bookStatus,
+			String briefDescription) {
+		super();
+		this.id = id;
+		this.bookTitle = bookTitle;
+		this.bookAuthor = bookAuthor;
+		this.bookGenre = bookGenre;
+		this.bookStatus = bookStatus;
+		this.briefDescription = briefDescription;
+	}
+
+	public Book() {
+
+	}
 
 	public long getId() {
 		return id;
@@ -62,7 +76,7 @@ public class Book {
 	public void setBookGenre(String bookGenre) {
 		this.bookGenre = bookGenre;
 	}
-	
+
 	public String getBookStatus() {
 		return bookStatus;
 	}
@@ -70,7 +84,7 @@ public class Book {
 	public void setBookStatus(String bookStatus) {
 		this.bookStatus = bookStatus;
 	}
-	
+
 	public String getBriefDescription() {
 		return briefDescription;
 	}
@@ -78,5 +92,5 @@ public class Book {
 	public void setBriefDescription(String briefDescription) {
 		this.briefDescription = briefDescription;
 	}
-	
+
 }

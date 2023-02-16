@@ -20,7 +20,7 @@ public class BookController {
 	// display list of book
 	@GetMapping("/")
 	public String viewHomePageString(Model model) {
-		
+
 		model.addAttribute("listBooks", bookService.getAllBook());
 
 		return "index";
@@ -36,8 +36,8 @@ public class BookController {
 		return "new_book";
 	}
 
-	@PostMapping("/saveBook")
-	public String saveBook(@ModelAttribute("book") Book book) {
+	@PostMapping("/saveBook/{id}")
+	public String saveBook(@PathVariable(value = "id") long id, @ModelAttribute("book") Book book) {
 
 		// save book to database
 		bookService.saveBook(book);
@@ -78,7 +78,6 @@ public class BookController {
 	}
 
 	// showFormForDescriptionUpdate
-
 	@GetMapping("/showFormForDescriptionUpdate/{id}")
 	public String showFormForDescriptionUpdate(@PathVariable(value = "id") long id, Model model) {
 
@@ -89,15 +88,16 @@ public class BookController {
 		model.addAttribute("book", book);
 
 		return "update_book_description";
+
 	}
 
-	@PostMapping("/saveBookDescription")
-	public String saveBookDescription(@ModelAttribute("book") Book book) {
+	@PostMapping("/saveBookDescription/{id}")
+	public String saveBookDescription(@PathVariable(value = "id") long id, @ModelAttribute("book") Book book) {
 
 		// save book description to database
 		bookService.saveBook(book);
 
-		return "redirect:/";
+		return "redirect:/moreInfo/{id}";
 	}
 
 }

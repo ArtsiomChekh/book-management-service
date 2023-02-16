@@ -14,7 +14,7 @@
 		<hr>
 		<h2>Update Book Description</h2>
 
-		<form action="#" th:action="@{/saveBookDescription}" th:object="${book}" method="POST">
+		<form action="#" th:action="@{/saveBookDescription/{id}(id=${book.id})}" th:object="${book}" method="POST">
 			<!-- Add hidden form field to handle update -->
 			<input type="hidden" th:field="*{id}" />
 			<input type="hidden" th:field="*{bookTitle}" />
