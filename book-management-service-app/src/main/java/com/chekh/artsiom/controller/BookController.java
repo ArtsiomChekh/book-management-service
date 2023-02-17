@@ -1,8 +1,11 @@
 package com.chekh.artsiom.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,12 +40,17 @@ public class BookController {
 	}
 
 	@PostMapping("/saveBook/{id}")
-	public String saveBook(@PathVariable(value = "id") long id, @ModelAttribute("book") Book book) {
+	public String saveBook(@PathVariable(value = "id") long id, @Valid @ModelAttribute("book") Book book,
+			BindingResult bindingResult) {
 
-		// save book to database
-		bookService.saveBook(book);
+		if (bindingResult.hasErrors()) {
+			return "new_book";
+		} else {
+			// save book to database
+			bookService.saveBook(book);
+			return "redirect:/";
+		}
 
-		return "redirect:/";
 	}
 
 	@GetMapping("/deleteBook/{id}")
@@ -92,12 +100,17 @@ public class BookController {
 	}
 
 	@PostMapping("/saveBookDescription/{id}")
-	public String saveBookDescription(@PathVariable(value = "id") long id, @ModelAttribute("book") Book book) {
+	public String saveBookDescription(@PathVariable(value = "id") long id, @Valid @ModelAttribute("book") Book book,
+			BindingResult bindingResult) {
 
-		// save book description to database
-		bookService.saveBook(book);
+		if (bindingResult.hasErrors()) {
+			return "update_book_description";
+		} else {
+			// save book description to database
+			bookService.saveBook(book);
+			return "redirect:/moreInfo/{id}";
+		}
 
-		return "redirect:/moreInfo/{id}";
 	}
 
 }
