@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "books")
@@ -16,18 +18,23 @@ public class Book {
 	private long id;
 
 	@Column(name = "book_title")
+	@NotEmpty(message = "Book title cannot be empty!")
 	private String bookTitle;
 
 	@Column(name = "book_author")
+	@NotEmpty(message = "Book author cannot be empty!")
 	private String bookAuthor;
 
 	@Column(name = "book_genre")
+	@NotEmpty(message = "Book genre cannot be empty!")
 	private String bookGenre;
 
 	@Column(name = "book_status")
 	private String bookStatus;
 
 	@Column(name = "brief_description")
+	@NotEmpty(message = "Book description cannot be empty!")
+	@Size(max = 1000)
 	private String briefDescription;
 
 	public Book(long id, String bookTitle, String bookAuthor, String bookGenre, String bookStatus,

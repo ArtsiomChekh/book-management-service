@@ -24,7 +24,11 @@
 
 			<textarea class="form-control" rows="3" type="text" th:field="*{briefDescription}">
 			</textarea>
+			<div>
+				<p th:each="error : ${#fields.errors('briefDescription')}" th:text="${error}"></p>
+            </div>
 			<button type="submit" class="btn btn-primary col-2"> Update Book</button>
+			
 		</form>
 		<hr>
 		<a th:href="@{/moreInfo/{id}(id=${book.id})}"> Back to More Info Page</a>

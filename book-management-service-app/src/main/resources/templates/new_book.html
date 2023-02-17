@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Book Management System</title>
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -15,18 +16,29 @@
 		<h2>Add Book</h2>
 
 		<form action="#" th:action="@{/saveBook/{id}(id=${book.id})}" th:object="${book}" method="POST">
-			<input type="text" th:field="*{bookTitle}" placeholder="Book Title" class="form-control mb-4 col-4">
 
+			<input type="text" th:field="*{bookTitle}" placeholder="Book Author" class="form-control mb-4 col-4">
+			<ul>
+				<li th:each="err : ${#fields.errors('bookTitle')}" th:text="${err}" />
+            </ul>
+			
+			
 			<input type="text" th:field="*{bookAuthor}" placeholder="Book Author" class="form-control mb-4 col-4">
+			<ul>
+				<li th:each="err : ${#fields.errors('bookAuthor')}" th:text="${err}" />
+            </ul>
 
 			<input type="text" th:field="*{bookGenre}" placeholder="Book Genre" class="form-control mb-4 col-4">
+			<ul>
+				<li th:each="err : ${#fields.errors('bookGenre')}" th:text="${err}" />
+            </ul>
 
 			<select name="bookStatus" class="form-control mb-4 col-4">
 				<option selected>Status...</option>
 				<option value="Read"> Read </option>
 				<option value="Not Read"> Not Read </option>
 			</select>
-
+			
 			<button type="submit" class="btn btn-primary col-2"> Save Book</button>
 		</form>
 
