@@ -8,6 +8,7 @@ Users should be able to:
 * Update a book
 * Delete a book
 * View more information
+* Input errors
 
 ## Getting Started
 
