@@ -16,6 +16,7 @@ http://localhost:8080/
 
 ## Built With
 
+* Spring MVC
 * Spring Boot
 * Maven
 * Thymeleaf
