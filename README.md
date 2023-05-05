@@ -1,7 +1,8 @@
 # Book Management Service
 
 This is Spring MVC CRUD web application.
-Users should be able to:
+
+## Features
 
 * Get all the books
 * Add a new book
@@ -9,10 +10,6 @@ Users should be able to:
 * Delete a book
 * View more information
 * Input errors
-
-## Getting Started
-
-http://localhost:8080/
 
 ## Built With
 
@@ -26,6 +23,10 @@ http://localhost:8080/
 * Bootstrap
 * HTML
 * Apache Tomcat
+
+## Getting Started
+
+http://localhost:8080/
 
 
 ## App overview
